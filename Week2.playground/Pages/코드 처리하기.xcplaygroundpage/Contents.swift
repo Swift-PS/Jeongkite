@@ -4,12 +4,12 @@ func solution(_ code:String) -> String {
     var ret: String = ""
     var mode: Int = 0
     
-    for idx in 0..<code.count {
-        if code[code.index(code.startIndex, offsetBy: idx)] == "1" {
+    for (idx, char) in code.enumerated() {
+        if char == "1" {
             mode = mode == 0 ? 1 : 0
         } else {
             if idx % 2 == mode {
-                ret.append(code[code.index(code.startIndex, offsetBy: idx)])
+                ret.append(char)
             }
         }
     }
@@ -18,3 +18,4 @@ func solution(_ code:String) -> String {
 }
 
 solution("abc1abc1abc")
+solution("")
