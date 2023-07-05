@@ -3,20 +3,13 @@
 import Foundation
 
 func solution(_ num:Int, _ total:Int) -> [Int] {
-    // 배열의 가장 큰 수가 total보다 클 수 있음!! -> 이 풀이 완전 틀림
-    var i: Int = total + num, start: Int = 0, result: Int
-    while true {
-        result = 0
-        for j in 0..<num {
-            result += (i - j)
-        }
-        if result == total {
-            start = i
-            break
-        }
-        i -= 1
+    let mid: Int = total / num
+    let count: Int = num / 2
+    if num % 2 == 0 {
+        return Array((mid-count+1)...(mid+count))
+    } else {
+        return Array((mid-count)...(mid+count))
     }
-    return Array((start - num + 1) ... start)
 }
 
 solution(4, 2)
