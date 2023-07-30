@@ -4,22 +4,21 @@ import Foundation
 
 func solution(_ s:String, _ n:Int) -> String {
     var result: String = ""
-    for char in s {
-        var ascii = UnicodeScalar(String(char))!.value
-        if (UnicodeScalar("A").value <= ascii && ascii <= UnicodeScalar("Z").value
-            && (ascii + UInt32(n) > UnicodeScalar("Z").value)) {
-            ascii = UnicodeScalar("A").value + (ascii + UInt32(n) - UnicodeScalar("Z").value) - 1
-        } else if (UnicodeScalar("a").value <= ascii && ascii <= UnicodeScalar("z").value
-                   && (ascii + UInt32(n) > UnicodeScalar("z").value)) {
-            ascii = UnicodeScalar("a").value + (ascii + UInt32(n) - UnicodeScalar("z").value) - 1
-        } else if (String(char) != " ") {
-            ascii = ascii + UInt32(n)
+    for char in s.utf8 {
+        var code = Int(char)
+        switch code {
+        case 65...90:
+            code = (code + n - 65) % 26 + 65
+        case 97...122:
+            code = (code + n - 97) % 26 + 97
+        default:
+            break
         }
-        result.append(String(UnicodeScalar(ascii)!))
+        result.append(String(UnicodeScalar(code)!))
     }
     return result
 }
 
-solution("z", 1)
+solution("a bz", 3)
 
 //: [Next](@next)
