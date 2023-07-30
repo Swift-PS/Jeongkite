@@ -2,14 +2,21 @@
 
 import Foundation
 
-func solution(_ s:String) -> Bool
-{
-    var ans:Bool = false
+func solution(_ s:String) -> Bool {
+    var answer: Int = 0
     
-    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-    print("Hello Swift")
-
-    return ans
+    for char in s {
+        if char == "p" || char == "P" {
+            answer += 1
+        } else if char == "y" || char == "Y" {
+            answer -= 1
+        }
+    }
+    
+    return answer == 0 ? true : false
 }
+
+solution("pPoooyY")
+solution("Pyy")
 
 //: [Next](@next)
