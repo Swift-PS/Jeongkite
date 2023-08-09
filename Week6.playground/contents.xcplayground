@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='K번째수'/>
+        <page name='숫자 문자열과 영단어'/>
+        <page name='행렬의 덧셈'/>
+        <page name='체육복'/>
+    </pages>
+</playground>
